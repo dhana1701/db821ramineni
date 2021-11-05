@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p technology results
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let mattress = [
+                    {
+                        "type": "Artificial Intelligence",
+                        "estblishementdate": "11/04/2021",
+                        "Areas_of_technology":"Software" 
+                    },
+                    {
+                        "type": "Robotic Process Automation",
+                        "estblishementdate": "11/04/2021",
+                        "Areas_of_technology": "software"
+                    },
+                    {
+                        "type": "Edge Computing",
+                        "estblishementdate": "11/04/2021",
+                        "Areas_of_technology": "software"
+                    },                   
+                ]
+            each v,index in mattress
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.type}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.estblishementdate}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Areas_of_technology}
+
+                script.                
+                      function buy(technologyNo)
+                      {
+                            alert(`Type of technology ${technologyNo+1}`)
+                      }
