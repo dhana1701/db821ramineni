@@ -2,7 +2,7 @@
 
 It's easy to calculate a tip without a calculator
 
-<https://fwb23ramineni.herokuapp.com/>
+[hosted at](https://db21ramineni.herokuapp.com/)
 
 My class: technology 
 
