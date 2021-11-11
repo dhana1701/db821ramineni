@@ -13,6 +13,17 @@ exports.technology_list = async function(req, res) {
     }   
 }; 
 
+exports.technology_view_all_Page = async function(req, res) { 
+    try{ 
+        thetechnology = await technology.find(); 
+        res.render('technology', { title: 'technology Search Results', results: thetechnology }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+};
+
  
 // for a specific technology. 
 exports.technology_detail = function(req, res) { 
@@ -42,16 +53,7 @@ exports.technology_create_post = async function(req, res) {
 }; 
 // VIEWS 
 // Handle a show all view 
-exports.technology_view_all_Page = async function(req, res) { 
-    try{ 
-        thetechnology = await technology.find(); 
-        res.render('technology', { title: 'technology Search Results', results: thetechnology }); 
-    } 
-    catch(err){ 
-        res.status(500); 
-        res.send(`{"error": ${err}}`); 
-    }   
-};
+
  
 // Handle technology delete form on DELETE. 
 exports.technology_delete = function(req, res) { 
