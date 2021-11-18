@@ -1,8 +1,10 @@
 extends layout 
  
 block content 
-  h1= title 
- 
+h1= title 
+  if(toshow == null)
+      h2 No instance to delete 
+  else
   - let technologyid = toShow._id 
   - let type = toShow.type 
   - let estblishementdate = toShow.estblishementdate 

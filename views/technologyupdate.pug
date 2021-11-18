@@ -2,13 +2,15 @@ extends layout
  
 block content 
   h1= title 
- 
+    if (toshow == null)
+       h2 No instance to delete 
+    else
   - let technologyid = toShow._id 
   - let type = toShow.type
   - let estblishementdate = toShow.estblishementdate
   - let Areas_of_technology = toShow.Areas_of_technology 
  
-   
+  div 
   div.row(class='mb-2') 
     div.mr-1 ID is 
     div #{technologyid} 
