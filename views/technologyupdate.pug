@@ -1,0 +1,44 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let technologyid = toShow._id 
+  - let type = toShow.type
+  - let estblishementdate = toShow.estblishementdate
+  - let Areas_of_technology = toShow.Areas_of_technology 
+ 
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{technologyid} 
+  - let actionid = "/resource/technology/" + technologyid 
+  form(id='technologyForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.technologyAttr(for='type') type 
+        input#type(type='text', name='type', value=type ) 
+    div.form-group 
+        label.technologyAttr(for='estblishementdate') estblishementdate 
+        input#estblishementdate(type='text', name='estblishementdate', value=estblishementdate ) 
+    div.form-group 
+        label.technologyAttr(for='Areas_of_technology') Areas_of_technology 
+        input#Areas_of_technology(type='text', name='Areas_of_technology', value=Areas_of_technology ) 
+    input(type="submit") 
+ 
+  script.
+    document.forms['technologyForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user ttechnology form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.text(); // or resp.text() or wtechnologyever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });

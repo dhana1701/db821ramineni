@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let technologyid = toShow._id 
+  - let type = toShow.type 
+  - let estblishementdate = toShow.estblishementdate 
+  - let Areas_of_technology = toShow.Areas_of_technology 
+  div 
+    div.row 
+      div(class='technologyAttr mr-3') technology ID is: 
+      div #{technologyid} 
+    div.row 
+      div(class='technologyAttr mr-3') Type is: 
+      div #{type} 
+    div.row 
+      div(class='technologyAttr mr-3') estblishementdateur is: 
+      div #{estblishementdate} 
+    div.row 
+      div(class='technologyAttr mr-3') Areas_of_technology is: 
+      div #{Areas_of_technology}

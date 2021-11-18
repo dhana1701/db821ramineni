@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='technologyForm', action="/resource/technology", method="POST") 
+    div.form-group 
+        label.technologyAttr(for='type') type
+        input#type(type='text', name='type') 
+    div.form-group 
+        label.technologyAttr(for='estblishementdate') estblishementdate 
+        input#estblishementdate(type='text', name='estblishementdate') 
+    div.form-group 
+        label.technologyAttr(for='Areas_of_technology') technology price 
+        input#Areas_of_technology(type='text', name='Areas_of_technology') 
+    input(type="submit") 
+ 
+  script.
+    document.forms['technologyForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user ttechnology form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.text(); // or resp.text() or wtechnologyever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    });

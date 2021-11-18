@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+.technologyAttr { 
+  background-color: aquamarine; 
+  width: 120px; 
+} 
+
+.technologyAttr {
+  background-color:red;
+  width: 200px;
+  margin: 5px;
+  text-align: center;
+  color:purple;
+  padding: 10px;
+  border-radius: 5px;
+}
+.title {
+  color: yellow;
+  font-weight: 500;
+  font-family: sans-serif;
+}

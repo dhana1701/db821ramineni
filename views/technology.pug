@@ -6,9 +6,9 @@ block content
   div(class="container-fluid")
         div(class="row")
             -
-                let mattress = results
+                let technology = results
 
-            each v,index in mattress
+            each v,index in technology
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.type}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.estblishementdate}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.Areas_of_technology}
