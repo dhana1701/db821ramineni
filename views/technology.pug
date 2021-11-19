@@ -1,20 +1,19 @@
-extends layout
+extends layout 
 
 block content
   h1= title
-  p technology results
-  div(class="container-fluid")
-        div(class="row")
-            -
-                let technology = results
-
-            each v,index in technology
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.type}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.estblishementdate}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Areas_of_technology}
-
-                script.                
-                      function buy(technologyNo)
-                      {
-                            alert(`Type of technology ${technologyNo+1}`)
-                      }
+  - let technology = results;
+  script.
+    function buy(x){
+      alert('Purchased Item: ' + x)
+   } 
+  div(class='container-fluid')
+    div(class='row m-1')
+      each m, index in technology 
+       - let destination = `dispatch(\"/technology/update?id=${m._id}\")` 
+       div(class="col-sm-2" onclick=`buy(${index})`) #{m.type} #{m.estblishementdate} #{m.Areas_of_technology}
+       button.btn( class="btn-primary ml-1", onclick= destination) Update 
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    }
