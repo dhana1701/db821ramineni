@@ -2,13 +2,27 @@ extends layout
 
 block content
   h1= title
-  p Welcome to NorthWest #{title} 
-  button(type='button',onclick='update()',class='btn btn-primary') Press Me
-  div(id="target") text of Display 
+  p Welcome to the Northwest #{title}
+  p Dhanalakshmi Ramineni 
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/technology") Take me to technology
+    br
+    a(href="/logout") Logout
+  br
+  button(type="button", class="btn btn-secondary" onclick='update()') press me 
+  br
+  br
+  div(id='target') Display
+  br
+  a(href='/technology') Search technology page
   script.
     var client_count = 0;
     function update(){
-      client_count +=1;
-      document.getElementById("target").innerHTML = "Value now " + client_count;
+      client_count++
+      document.getElementById("target").innerHTML = `Value now ${client_count}`
     }
-  a(href='technology') technology
