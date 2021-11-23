@@ -50,7 +50,7 @@ res.render('login', { title: 'technology App Login', user : req.user });
 router.post('/login', passport.authenticate('local'), function(req, res) {
   if(req.session.returnTo)
    res.redirect(req.session.returnTo);
-  res.redirect('/');
+  //res.redirect('/');
 });
 
 router.get('/logout', function(req, res) {

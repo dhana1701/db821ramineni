@@ -20,13 +20,13 @@ const secured = (req, res, next) => {
     }
 
 /* GET create technology page */ 
-router.get('/create', technology_controlers.technology_create_Page); 
+router.get('/create',secured, technology_controlers.technology_create_Page); 
 
 /* GET create technology page */ 
 router.get('/update',secured, technology_controlers.technology_update_Page);
 
 /* GET create technology page */ 
-router.get('/delete', technology_controlers.technology_delete_Page);
+router.get('/delete',secured, technology_controlers.technology_delete_Page);
 
 
 module.exports = router;

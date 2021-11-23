@@ -1,19 +1,29 @@
 extends layout 
 
 block content
+  -let destnations4 = `dispatch(\"/technology/create\")`
+ 
+  button.btn( class="btn-primary m-1", onclick= destinations4) Create 
+  
   h1= title
-  - let technology = results;
-  script.
-    function buy(x){
-      alert('Purchased Item: ' + x)
-   } 
-  div(class='container-fluid')
-    div(class='row m-1')
-      each m, index in technology 
-       - let destination = `dispatch(\"/technology/update?id=${m._id}\")` 
-       div(class="col-sm-2" onclick=`buy(${index})`) #{m.type} #{m.estblishementdate} #{m.Areas_of_technology}
-       button.btn( class="btn-primary ml-1", onclick= destination) Update 
-  script. 
-    function dispatch(path){ 
-      window.location.href=path 
-    }
+  
+  div(class="container-fluid")
+        div(class="row m-1")
+            -
+                let technology = results
+            each m, index in technology 
+                
+                -let destination1 = `dispatch(\"/technology/update?id=${m._id}\")`
+                -let destinations2 = `dispatch(\"/technology/detail?id=${m._id}\")`
+                -let destinations3 = `dispatch(\"/technology/delete?id=${m._id}\")`
+                div(class="col-sm-2" onclick=`buy(${index})`) #{m.type} #{m.estblishementdate} #{m.Areas_of_technology}
+                 button.btn( class="btn-success m-1", onclick= destinations2) Detail
+                 button.btn( class="btn-primary m-1", onclick= destination1) Update
+                 button.btn( class="btn-danger m-1", onclick= destinations3) Delete
+            script.
+                function buy(itemNo){
+                    alert(`You purchased Item ${itemNo+1}`)
+                } 
+                function dispatch(path){
+                    window.location.href=path
+                }
